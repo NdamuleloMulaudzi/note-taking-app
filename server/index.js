@@ -1,13 +1,16 @@
-import express from "express"
-import { configDotenv } from "dotenv"
+import express from "express";
+import bodyParser from "body-parser";
+import { configDotenv } from "dotenv";
+import notesRoutes from "./routes/notes.routes.js"
+configDotenv();
 
-configDotenv()
+const app = express();
 
-const app = express()
+app.use(bodyParser.json())
 
+app.use("/notes", notesRoutes)
+const PORT = process.env.port || 3000;
 
-const PORT = process.env.PORT || 3000
-
-app.listen(PORT, ()=>{
-    console.log(`server is running on http://localhost:${PORT}`)
-})
+app.listen(PORT, () => {
+  console.log(`server is running on http://localhost:${PORT}`);
+});
