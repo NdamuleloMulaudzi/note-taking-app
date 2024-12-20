@@ -18,3 +18,6 @@ Content-Type: application/json
 ###
 GET http://localhost:8000/notes/fetchnote/
 
+###
+
+DELETE http://localhost:8000/notes/deletenote/23

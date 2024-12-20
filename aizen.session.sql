@@ -1,1 +1,1 @@
-INSERT INTO notes(user_id, note_description) VALUES(1, 'hello')
+;
