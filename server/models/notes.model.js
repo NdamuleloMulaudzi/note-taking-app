@@ -13,9 +13,12 @@ async function modifyNote(noteID, noteDescription) {
     "UPDATE notes SET note_description=$2 WHERE note_id=$1 RETURNING *",
     [noteID, noteDescription]
   );
-  return query
+  return query;
 }
 
+async function fetchNotes(userId) {
+  const query = await pool.query("SELECT * FROM notes WHERE user_id=$1", [userId]);
+  return query;
+}
 
-
-export { insertNote, modifyNote };
+export { insertNote, modifyNote, fetchNotes };
