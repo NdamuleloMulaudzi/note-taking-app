@@ -1,8 +1,9 @@
 import { Router } from "express";
-import {createNote}  from "../controllers/notes.controller.js"
+import {createNote, updateNote}  from "../controllers/notes.controller.js"
 
 const route = Router()
 
 route.post("/addnote", createNote)
+route.put("/modifynote/:noteId", updateNote)
 
 export default route

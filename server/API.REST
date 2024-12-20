@@ -1,0 +1,15 @@
+# POST http://localhost:8000/notes/addnote
+# Content-Type: application/json
+
+# {
+#   "userId":"1",
+#   "noteDescription":"its Ndamulelo"
+# }
+
+
+
+PUT http://localhost:8000/notes/modifynote/22
+
+{
+  "noteDescription":"updated version"
+}
