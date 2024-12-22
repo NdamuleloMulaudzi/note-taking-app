@@ -8,4 +8,7 @@ async function insertUser(fisrtName, lastName, email, passord) {
   return query
 }
 
+
+
+
 export {insertUser}
