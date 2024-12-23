@@ -1,1 +1,1 @@
-INSERT INTO users(first_name, last_name, email, password) VALUES('Tshilidzi', 'Munyai', 'tshilidzi@gmail.com', 12345)
+DELETE FROM notes
