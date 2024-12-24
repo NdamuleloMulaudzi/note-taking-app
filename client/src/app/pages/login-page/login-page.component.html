@@ -1,31 +1,49 @@
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      name="email"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Enter email"
-    />
-    <small id="emailHelp" class="form-text text-muted"
-      >We'll never share your email with anyone else.</small
-    >
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input
-      type="password"
-      class="form-control"
-      name="password"
-      id="exampleInputPassword1"
-      placeholder="Password"
-    />
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="login">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="d-flex flex-column justify-content-center h-50"
+  >
+    <div>
+      <p class="text-center">
+        Don't have an account? <a routerLink="/auth/register">Register</a>
+      </p>
+    </div>
+    <div>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        aria-describedby="emailHelp"
+        [placeholder]="
+          loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+            ? 'Please enter a valid email.'
+            : 'Email'
+        "
+      />
+    </div>
+
+    <div>
+      <input
+        type="password"
+        class="form-control"
+        formControlName="password"
+        [placeholder]="
+          loginForm.get('password')?.invalid &&
+          loginForm.get('password')?.touched
+            ? 'Password must be at least 6 characters long.'
+            : 'Password'
+        "
+      />
+    </div>
+    <div>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        Sign up
+      </button>
+    </div>
+  </form>
+</div>
