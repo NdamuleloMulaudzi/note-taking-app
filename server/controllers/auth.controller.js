@@ -50,8 +50,7 @@ const login = async (req, res) => {
     const token = jwt.sign({ user_id: user.user_id }, "mycats", {
       expiresIn: "1hr",
     });
-    res.json(results);
-    res.json(token)
+    res.json(results.rows);
   } catch (error) {
     console.error("Error during login:", error);
     res.status(500).json({ message: "An error occurred during login" });
