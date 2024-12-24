@@ -1,11 +1,11 @@
 export interface LoginInterface {
-  email: string;
-  password: string;
+  email: string| null |undefined;
+  password: string |null|undefined;
 }
 
 export interface registerInterface extends LoginInterface {
-  firstName: string;
-  lastname: string;
+  firstName: string | null |undefined;
+  lastName: string |null |undefined;
 }
 
 export interface UserInterface {

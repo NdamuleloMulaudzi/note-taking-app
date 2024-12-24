@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  constructor() {}
 
-  constructor() { }
+  setUser(user: string) {
+    localStorage.setItem('user', user);
+  }
+
+  getUser() {
+    localStorage.getItem('user');
+  }
 }

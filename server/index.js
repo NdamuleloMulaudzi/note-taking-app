@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import cors from 'cors'
 import { configDotenv } from "dotenv";
 import notesRoutes from "./routes/notes.routes.js"
 import userRoutes from "./routes/user.routes.js"
@@ -8,6 +9,7 @@ configDotenv();
 
 const app = express();
 
+app.use(cors())
 app.use(bodyParser.json())
 
 app.use("/auth",authRoutes)
