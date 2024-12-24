@@ -1,25 +1,28 @@
 .note-btn {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
 }
 
 .bg-peach {
-    background: #FEC973;
+  background: #fec973;
 }
 
 .bg-orange {
-    background: #FF9B72;
+  background: #ff9b72;
 }
 
 .bg-lavender {
-    background: #B493FE;
+  background: #b493fe;
 }
 
 .bg-blue {
-    background: #00D4FF;
+  background: #00d4ff;
 }
 
 .bg-green {
-    background: #E4EF8F;
+  background: #e4ef8f;
 }
+
+
+

@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.note-card {
+    width: 300px;
+    height: 254px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #000000;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .note-card p {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+  }
+  
