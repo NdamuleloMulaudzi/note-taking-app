@@ -12,8 +12,8 @@ export class NotesService {
   SERVER = environment.SERVER;
 
   constructor(private http: HttpClient) {}
-  createNote(userId:number, noteDescription:string):Observable<InsertNoteInterface>{
-    return this.http.post<InsertNoteInterface>(`${this.SERVER}/notes/addnote`, [userId,noteDescription])
+  createNote(noteData:InsertNoteInterface):Observable<InsertNoteInterface>{
+    return this.http.post<InsertNoteInterface>(`${this.SERVER}/notes/addnote`, noteData)
   }
 
 }

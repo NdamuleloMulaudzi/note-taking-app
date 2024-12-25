@@ -1,8 +1,8 @@
 
 
 export interface InsertNoteInterface {
-  userId: number;
-  noteDescription: string;
+  userId: number | null | undefined;
+  noteDescription: string | null | undefined;
 }
 
 export interface fetchNote extends InsertNoteInterface {
