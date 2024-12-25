@@ -9,9 +9,9 @@ export interface registerInterface extends LoginInterface {
 }
 
 export interface UserInterface {
-  userId: number;
-  firstName: string;
-  lastname: string;
+  user_id: number;
+  first_name: string;
+  last_name: string;
   email: string;
   password: string;
 }

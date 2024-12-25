@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { InsertNoteInterface } from '../interfaces/note.interface';
+import { fetchNoteInterface, InsertNoteInterface } from '../interfaces/note.interface';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -16,4 +16,8 @@ export class NotesService {
     return this.http.post<InsertNoteInterface>(`${this.SERVER}/notes/addnote`, noteData)
   }
 
+
+  fetchNotes(userId:number):Observable<fetchNoteInterface[]>{
+    return this.http.get<fetchNoteInterface[]>(`${this.SERVER}/notes/fetchnote/${userId}`)
+  }
 }

@@ -5,7 +5,7 @@ export interface InsertNoteInterface {
   noteDescription: string | null | undefined;
 }
 
-export interface fetchNote extends InsertNoteInterface {
+export interface fetchNoteInterface extends InsertNoteInterface {
   noteId: number;
   time_created:string;
   

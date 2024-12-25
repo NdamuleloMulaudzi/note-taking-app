@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-add-button',
@@ -12,7 +13,7 @@ export class AddButtonComponent {
   userId: number = 39;
   noteDescription = 'This is a docket';
 
-  constructor(private notesService: NotesService) {}
+  constructor(private notesService: NotesService, userServices:UserService) {}
 
   createNote() {
     console.log(this.userId)
