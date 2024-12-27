@@ -7,10 +7,10 @@ import {
 
 //create a note
 const createNote = async (req, res) => {
-  const { userId, noteDescription } = req.body;
+  const { userId, noteDescription, color } = req.body;
 
   try {
-    const newNote = await insertNote(userId, noteDescription);
+    const newNote = await insertNote(userId, noteDescription, color);
     res.json(newNote);
   } catch (error) {
     console.error("Error creating a note:", error);
@@ -56,10 +56,12 @@ const deleteNote = async (req, res) => {
 
   try {
     const results = await removeNote(noteId);
-    if(results.rowCount===0){
-     return res.status(400).send("note not found or you do not have permission to delete it")
+    if (results.rowCount === 0) {
+      return res
+        .status(400)
+        .send("note not found or you do not have permission to delete it");
     }
-    res.status(200).send("note deleted successfully")
+    res.status(200).send("note deleted successfully");
   } catch (error) {
     console.error("Error deleting a note", error);
     res.status(500).send("Error deleting a note");

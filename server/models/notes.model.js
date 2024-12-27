@@ -1,10 +1,10 @@
 import pool from "../db/db.config.js";
 
 //inserting note model
-async function insertNote(userId, noteDescription) {
+async function insertNote(userId, noteDescription, color) {
   const query = await pool.query(
-    "INSERT INTO notes(user_id, note_description) VALUES($1, $2) RETURNING *",
-    [userId, noteDescription]
+    "INSERT INTO notes(user_id, note_description, color) VALUES($1, $2, $3) RETURNING *",
+    [userId, noteDescription, color]
   );
   return query.rows[0];
 }
@@ -20,7 +20,7 @@ async function modifyNote(noteID, noteDescription) {
 
 //fetch notes model
 async function fetchNotes(userId) {
-  const query = await pool.query("SELECT * FROM notes WHERE user_id=$1", [
+  const query = await pool.query("SELECT * FROM notes WHERE user_id=$1 ORDER BY time_created DESC", [
     userId,
   ]);
   return query;

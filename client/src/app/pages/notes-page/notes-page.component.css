@@ -1,7 +1,4 @@
-.notes {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-auto-flow: column-reverse;
+.note-page{
+    height: 100vh;
+    overflow-y: scroll;
 }
-
-

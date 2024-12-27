@@ -13,24 +13,25 @@ export class AddButtonComponent {
   userId: number = 39;
   noteDescription = 'This is a docket';
 
-  constructor(private notesService: NotesService, userServices:UserService) {}
+  constructor(private notesService: NotesService,public  userServices:UserService) {}
 
-  createNote() {
+
+  createNote(color:string) {
     console.log(this.userId)
     this.notesService
-      .createNote({userId:39, noteDescription:this.noteDescription})
+      .createNote({userId:39, noteDescription:this.noteDescription, color: color})
       .subscribe((response) => console.log(response));
   }
 
-  createNoteCard(color: string) {
-    const notes = document.querySelector('.notes');
-    this.createNote()
-    const card = document.createElement('div');
-    card.classList.add('note-card');
-    card.setAttribute('contentEditable', 'true');
-    card.style.backgroundColor = color;
-    card.innerHTML = `<p>${this.noteDescription}<p>`;
+  // createNoteCard(color: string) {
+  //   const notes = document.querySelector('.notes');
+  //   this.createNote()
+  //   const card = document.createElement('div');
+  //   card.classList.add('note-card');
+  //   card.setAttribute('contentEditable', 'true');
+  //   card.style.backgroundColor = color;
+  //   card.innerHTML = `<p>${this.noteDescription}<p>`;
 
-    notes?.prepend(card);
-  }
+  //   notes?.prepend(card);
+  // }
 }
