@@ -3,3 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+h3{
+  z-index:99;
+}

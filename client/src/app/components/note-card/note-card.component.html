@@ -4,6 +4,8 @@
     class="card p-3 d-flex"
     [style.backgroundColor]="note.color"
     draggable="true"
+    (dragstart)="onDragStart($event, note)"
+  (dragend)="onDragEnd($event)"
   >
     <p
     

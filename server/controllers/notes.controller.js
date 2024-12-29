@@ -52,7 +52,7 @@ const getNotes = async (req, res) => {
 
 //delete note
 const deleteNote = async (req, res) => {
-  const { noteId } = req.body;
+  const { noteId } = req.params;
 
   try {
     const results = await removeNote(noteId);

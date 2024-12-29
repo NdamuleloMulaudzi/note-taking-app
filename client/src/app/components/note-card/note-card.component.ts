@@ -15,8 +15,7 @@ export class NoteCardComponent implements OnInit {
   //store notes from a user
   notes: any[] = [];
 
-
-  //fetch 
+  //fetch notes of a user
   fetchNotes() {
     this.notesService.fetchNotes(39).subscribe({
       next: (response) => {
@@ -30,7 +29,7 @@ export class NoteCardComponent implements OnInit {
   }
 
   //handles the changes when the note description is being changed
-  noteDescriptionChange(noteId: number, event: Event) {
+  noteDescriptionChange(noteId: number, event: Event):void {
     const updatedDescription = (
       event.target as HTMLElement
     ).textContent?.trim();
@@ -43,7 +42,7 @@ export class NoteCardComponent implements OnInit {
   }
 
   //update the note descreption
-  updateNote(noteId: number, updatedDescription: string) {
+  updateNote(noteId: number, updatedDescription: string):void {
     this.notesService
       .updateNotes(noteId, updatedDescription)
       .subscribe((res) => console.log('Note updated:', res));
@@ -51,11 +50,23 @@ export class NoteCardComponent implements OnInit {
 
   // Toggle the editable state for note description
   toggleEdit(note: any) {
-    note.isEditable = !note.isEditable; 
-
-    
+    note.isEditable = !note.isEditable;
   }
-  
+
+  //decrease the opacity of the card when dragged && transfer the noteId to the delete-button delete
+  onDragStart(event: DragEvent, note: any): void {
+    const target = event.currentTarget as HTMLElement;
+    target.classList.add('dragging');
+    if (event.dataTransfer) {
+      event.dataTransfer.setData('text/plain', note.note_id.toString());
+    }
+  }
+
+
+  onDragEnd(event: DragEvent): void {
+    const target = event.currentTarget as HTMLElement;
+    target.classList.remove('dragging');
+  }
 
   ngOnInit(): void {
     this.fetchNotes();

@@ -24,4 +24,8 @@ export class NotesService {
   updateNotes(noteId:number, noteDescription:string):Observable<UpdateNoteInterface>{
     return this.http.put<UpdateNoteInterface>(`${this.SERVER}/modifynote/${noteId}`, {noteDescription})
   }
+
+  deleteNote(noteId:number):Observable<any>{
+    return this.http.delete<any>(`${this.SERVER}/deletenote/${noteId}`)
+  }
 }

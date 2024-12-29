@@ -12,3 +12,7 @@ export interface UpdateNoteInterface {
   nodeId: number | null | undefined;
   noteDescription: string | null | undefined;
 }
+
+export interface deleteNoteInterface{
+  noteId:number;
+}
