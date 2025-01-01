@@ -7,15 +7,13 @@ import { UserInterface } from '../interfaces/user.interface';
 export class UserService {
   constructor() {}
 
-  setUser(user: string) {
-    localStorage.setItem('user', user);
+  setUser(data: any): void {
+    const user = Array.isArray(data) ? data[0] : data;
+    localStorage.setItem('user-data', JSON.stringify(user));
   }
 
-  getUser(): UserInterface | null {
-    if (localStorage.getItem('user')) {
-      let user: string = localStorage.getItem('user') || '';
-      return JSON.parse(user) as UserInterface;
-    }
-    return null;
+  getUser() {
+    const userData = localStorage.getItem('user-data');
+    return userData ? JSON.parse(userData) : null;
   }
 }

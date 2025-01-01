@@ -13,18 +13,10 @@ import { DeleteButtonComponent } from "../delete-button/delete-button.component"
 })
 export class SideBarComponent {
   constructor(public userService: UserService) {}
-  userData: UserInterface | null = null;
-  first_name: string |undefined
-  lastname:string | undefined
+ ngOnInit(): void {
+  console.log(this.userService.getUser())
+  
+ }
 
-  ngOnInit(): void {
-    this.getUser()
-    
-  }
-
-  getUser(){
-    this.userData = this.userService.getUser()
-   
-
-  }
+ 
 }

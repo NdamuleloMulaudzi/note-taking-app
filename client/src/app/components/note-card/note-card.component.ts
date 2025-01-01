@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
 import { CommonModule, NgFor, UpperCasePipe } from '@angular/common';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-note-card',
@@ -10,14 +11,14 @@ import { CommonModule, NgFor, UpperCasePipe } from '@angular/common';
   styleUrl: './note-card.component.css',
 })
 export class NoteCardComponent implements OnInit {
-  constructor(private notesService: NotesService) {}
+  constructor(private notesService: NotesService, private userService:UserService) {}
 
   //store notes from a user
   notes: any[] = [];
 
   //fetch notes of a user
   fetchNotes() {
-    this.notesService.fetchNotes(39).subscribe({
+    this.notesService.fetchNotes(this.userService.getUser().user_id).subscribe({
       next: (response) => {
         this.notes = response;
         console.log(this.notes);
@@ -58,7 +59,7 @@ export class NoteCardComponent implements OnInit {
     const target = event.currentTarget as HTMLElement;
     target.classList.add('dragging');
     if (event.dataTransfer) {
-      event.dataTransfer.setData('text/plain', note.note_id.toString());
+      event.dataTransfer.setData('text/plain', note.note_id);
     }
   }
 

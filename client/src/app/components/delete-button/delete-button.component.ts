@@ -9,6 +9,8 @@ import { NotesService } from '../../services/notes.service';
   styleUrl: './delete-button.component.css',
 })
 export class DeleteButtonComponent {
+  isDragOver: boolean = false;
+
   constructor(public notesService: NotesService) {}
 
   removeNote(noteId: number) {
@@ -22,31 +24,24 @@ export class DeleteButtonComponent {
     });
   }
 
-  @HostBinding('class.drag-over') isDragOver = false;
-
-  onDragEnter(event: DragEvent): void {
+  onDragOver(event: DragEvent): void {
     event.preventDefault();
     this.isDragOver = true;
-  }
-
-  onDragOver(event: DragEvent): void {
-    event.preventDefault(); // Necessary for drop event to trigger
-    this.isDragOver = true;
-  }
-
-  onDragLeave(event: DragEvent): void {
-    this.isDragOver = false;
   }
 
   onDrop(event: DragEvent): void {
     event.preventDefault();
-    this.isDragOver = false;
+    this.isDragOver;
 
     const noteId = event.dataTransfer?.getData('text/plain');
-    if (noteId) {
+
+    const confirmDelete = window.confirm(
+      'Are you sure you want to delete this note?'
+    );
+    if (confirmDelete) {
       this.removeNote(Number(noteId));
+    } else {
+      console.log('Delete action canceled.');
     }
-    // Handle the drop logic here
-    console.log('Card dropped on delete button');
   }
 }

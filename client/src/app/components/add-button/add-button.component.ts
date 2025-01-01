@@ -10,16 +10,14 @@ import { UserService } from '../../services/user.service';
   styleUrl: './add-button.component.css',
 })
 export class AddButtonComponent {
-  userId: number = 39;
   noteDescription = 'This is a docket';
 
   constructor(private notesService: NotesService,public  userServices:UserService) {}
 
 
   createNote(color:string) {
-    console.log(this.userId)
     this.notesService
-      .createNote({userId:39, noteDescription:this.noteDescription, color: color})
+      .createNote({userId:this.userServices.getUser().user_id, noteDescription:this.noteDescription, color: color})
       .subscribe((response) => console.log(response));
   }
 
