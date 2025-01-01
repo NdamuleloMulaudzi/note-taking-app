@@ -30,4 +30,8 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     canActivate: [authGuard],
   },
+  {
+    path: '**', // Wildcard route
+    redirectTo: 'auth/login', // Redirect to the home page or desired path
+  },
 ];

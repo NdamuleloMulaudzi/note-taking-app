@@ -1,8 +1,8 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
-import { CommonModule, NgFor, UpperCasePipe } from '@angular/common';
+import { CommonModule, NgFor,  } from '@angular/common';
 import { UserService } from '../../services/user.service';
-import { AddButtonComponent } from '../add-button/add-button.component';
+
 import { NoteEventService } from '../../services/note-event.service';
 
 @Component({
@@ -23,6 +23,7 @@ export class NoteCardComponent implements OnInit {
   notes: any[] = [];
 
   ngOnInit(): void {
+    this.userService.getUser()
     this.fetchNotes();
   
     // Refresh notes when a note is added or deleted
@@ -34,7 +35,7 @@ export class NoteCardComponent implements OnInit {
 
   //fetch notes of a user
   fetchNotes() {
-    this.notesService.fetchNotes(this.userService.getUser().user_id).subscribe({
+    this.notesService.fetchNotes(this.userService.getUser().user.id).subscribe({
       next: (response) => {
         this.notes = response;
         console.log(this.notes);

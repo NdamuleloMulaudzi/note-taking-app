@@ -24,7 +24,7 @@ export class AddButtonComponent {
   createNote(color: string) {
     this.notesService
       .createNote({
-        userId: this.userServices.getUser().user_id,
+        userId: this.userServices.getUser().user.id,
         noteDescription: this.noteDescription,
         color: color,
       })

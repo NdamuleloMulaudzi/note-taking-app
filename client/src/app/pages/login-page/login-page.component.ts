@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterLink],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css',
 })
@@ -23,16 +28,15 @@ export class LoginPageComponent {
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    private router:Router
+    private router: Router
   ) {}
 
   onSubmit() {
     const { email, password } = this.loginForm.value;
     this.authService.login({ email, password }).subscribe({
       next: (respons) => {
-        this.userService.setUser(respons)
-        console.log(respons)
-        this.router.navigate(['/dashboard'])
+        this.userService.setUser(respons);
+        this.router.navigate(['/dashboard']);
       },
       error: (err) => {
         console.error('Error logging in: ', err);
