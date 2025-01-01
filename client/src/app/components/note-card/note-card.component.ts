@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
 import { CommonModule, NgFor, UpperCasePipe } from '@angular/common';
 import { UserService } from '../../services/user.service';
+import { AddButtonComponent } from '../add-button/add-button.component';
+import { NoteEventService } from '../../services/note-event.service';
 
 @Component({
   selector: 'app-note-card',
@@ -11,10 +13,21 @@ import { UserService } from '../../services/user.service';
   styleUrl: './note-card.component.css',
 })
 export class NoteCardComponent implements OnInit {
-  constructor(private notesService: NotesService, private userService:UserService) {}
+  constructor(
+    private notesService: NotesService,
+    private userService: UserService,
+    private noteEventService: NoteEventService
+  ) {}
 
   //store notes from a user
   notes: any[] = [];
+
+  ngOnInit(): void {
+    this.fetchNotes();
+    this.noteEventService.noteAdded.subscribe(() => {
+      this.fetchNotes();
+    });
+  }
 
   //fetch notes of a user
   fetchNotes() {
@@ -30,7 +43,7 @@ export class NoteCardComponent implements OnInit {
   }
 
   //handles the changes when the note description is being changed
-  noteDescriptionChange(noteId: number, event: Event):void {
+  noteDescriptionChange(noteId: number, event: Event): void {
     const updatedDescription = (
       event.target as HTMLElement
     ).textContent?.trim();
@@ -43,7 +56,7 @@ export class NoteCardComponent implements OnInit {
   }
 
   //update the note descreption
-  updateNote(noteId: number, updatedDescription: string):void {
+  updateNote(noteId: number, updatedDescription: string): void {
     this.notesService
       .updateNotes(noteId, updatedDescription)
       .subscribe((res) => console.log('Note updated:', res));
@@ -63,13 +76,8 @@ export class NoteCardComponent implements OnInit {
     }
   }
 
-
   onDragEnd(event: DragEvent): void {
     const target = event.currentTarget as HTMLElement;
     target.classList.remove('dragging');
-  }
-
-  ngOnInit(): void {
-    this.fetchNotes();
   }
 }

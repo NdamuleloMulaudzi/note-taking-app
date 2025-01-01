@@ -1,5 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
+import { NoteEventService } from '../../services/note-event.service';
 
 @Component({
   selector: 'app-delete-button',
@@ -11,12 +12,15 @@ import { NotesService } from '../../services/notes.service';
 export class DeleteButtonComponent {
   isDragOver: boolean = false;
 
-  constructor(public notesService: NotesService) {}
+  constructor(
+    public notesService: NotesService,
+    private noteEventService: NoteEventService
+  ) {}
 
   removeNote(noteId: number) {
     this.notesService.deleteNote(noteId).subscribe({
-      next: (res) => {
-        console.log(res);
+      next: () => {
+        this.noteEventService.notifyNoteDeleted(noteId);
       },
       error: (err) => {
         console.error('Error deleting a note: ', err);

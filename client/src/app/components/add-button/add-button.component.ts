@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
 import { UserService } from '../../services/user.service';
+import { NoteEventService } from '../../services/note-event.service';
 
 @Component({
   selector: 'app-add-button',
@@ -12,13 +13,25 @@ import { UserService } from '../../services/user.service';
 export class AddButtonComponent {
   noteDescription = 'This is a docket';
 
-  constructor(private notesService: NotesService,public  userServices:UserService) {}
+  constructor(
+    private notesService: NotesService,
+    public userServices: UserService,
+    private noteEventService: NoteEventService
+  ) {}
 
-
-  createNote(color:string) {
+  createNote(color: string) {
     this.notesService
-      .createNote({userId:this.userServices.getUser().user_id, noteDescription:this.noteDescription, color: color})
-      .subscribe((response) => console.log(response));
+      .createNote({
+        userId: this.userServices.getUser().user_id,
+        noteDescription: this.noteDescription,
+        color: color,
+      })
+      .subscribe({
+        next: () => {
+          this.noteEventService.notifyNoteAdded();
+        },
+        error: (err) => console.error('Error creating note:', err),
+      });
   }
 
   // createNoteCard(color: string) {
