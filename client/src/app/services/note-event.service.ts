@@ -2,22 +2,16 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class NoteEventService {
-  constructor() {}
 
-  private noteAddedSource = new Subject<void>();
-  private noteDeletedSource = new Subject<number>();
+  constructor() { }
 
-  noteAdded = this.noteAddedSource.asObservable();
-  noteDeleted = this.noteDeletedSource.asObservable();
+  private noteUpdatedSource = new Subject<void>();
+  noteUpdated = this.noteUpdatedSource.asObservable();
 
-  notifyNoteAdded(): void {
-    this.noteAddedSource.next();
-  }
-
-  notifyNoteDeleted(noteId: number) {
-    this.noteDeletedSource.next(noteId);
+  notifyNoteUpdated(): void {
+    this.noteUpdatedSource.next();
   }
 }

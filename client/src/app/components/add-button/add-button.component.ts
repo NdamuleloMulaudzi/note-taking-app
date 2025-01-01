@@ -19,6 +19,8 @@ export class AddButtonComponent {
     private noteEventService: NoteEventService
   ) {}
 
+
+  //create a new note whith different colors
   createNote(color: string) {
     this.notesService
       .createNote({
@@ -28,21 +30,10 @@ export class AddButtonComponent {
       })
       .subscribe({
         next: () => {
-          this.noteEventService.notifyNoteAdded();
+          //this notifies that a new note was added and tells NoteCardComponent it needs to call the fetchNote function
+          this.noteEventService.notifyNoteUpdated();
         },
         error: (err) => console.error('Error creating note:', err),
       });
   }
-
-  // createNoteCard(color: string) {
-  //   const notes = document.querySelector('.notes');
-  //   this.createNote()
-  //   const card = document.createElement('div');
-  //   card.classList.add('note-card');
-  //   card.setAttribute('contentEditable', 'true');
-  //   card.style.backgroundColor = color;
-  //   card.innerHTML = `<p>${this.noteDescription}<p>`;
-
-  //   notes?.prepend(card);
-  // }
 }

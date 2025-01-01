@@ -58,13 +58,14 @@ const deleteNote = async (req, res) => {
     const results = await removeNote(noteId);
     if (results.rowCount === 0) {
       return res
-        .status(400)
-        .send("note not found or you do not have permission to delete it");
+        .status(404)
+        .json({ error: "Note not found or you do not have permission to delete it" });
     }
-    res.status(200).send("note deleted successfully");
+    res.status(200).json({ message: "Note deleted successfully" });
   } catch (error) {
     console.error("Error deleting a note", error);
-    res.status(500).send("Error deleting a note");
+    res.status(500).json({ error: "Internal server error" });
   }
 };
+
 export { createNote, updateNote, getNotes, deleteNote };

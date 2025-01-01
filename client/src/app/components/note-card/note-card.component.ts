@@ -24,10 +24,13 @@ export class NoteCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchNotes();
-    this.noteEventService.noteAdded.subscribe(() => {
+  
+    // Refresh notes when a note is added or deleted
+    this.noteEventService.noteUpdated.subscribe(() => {
       this.fetchNotes();
     });
   }
+  
 
   //fetch notes of a user
   fetchNotes() {
