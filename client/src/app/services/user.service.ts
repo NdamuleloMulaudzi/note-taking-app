@@ -17,5 +17,7 @@ export class UserService {
     return userData ? JSON.parse(userData) : null;
   }
 
-  
+  removeUser() {
+    localStorage.removeItem('user-data');
+  }
 }

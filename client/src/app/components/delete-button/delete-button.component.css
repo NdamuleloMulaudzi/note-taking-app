@@ -1,5 +1,5 @@
 .delete-btn {
-  padding-top: 200px;
-  position: relative; /* Ensure proper positioning */
+  padding-top: 150px;
+  position: relative; 
   z-index: 1000;
 }
