@@ -7,39 +7,47 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  width: 290px;
+  width: 300px;
   height: 260px;
-  padding: 20px;
   border-radius: 20px;
-  border: 1px solid #6f6a6a;
-
+  border: 1px solid #e1c1c1;
   margin: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
 }
 
-.note-card p {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: #333;
+.card > p {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 130px;
+  font-size: 19px;
+  margin: 0;
 }
 
 .time-update {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.time-update > p {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin: 0;
 }
 
 .icon {
   background: #000;
   gap: 20px;
-  border-radius: 50%;
-  padding: 5px;
+  border-radius: 60%;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
 
-.dragging {
-  opacity: 0.4;
-}
+
+
 
