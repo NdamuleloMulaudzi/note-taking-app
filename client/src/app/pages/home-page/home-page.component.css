@@ -1,0 +1,311 @@
+.landing{
+  background: #D9D9D9;
+  height: 100vh;
+  width: 100vw;
+}
+
+.landing-main{
+  background: #D9D9D9;
+}
+
+
+
+
+
+
+
+
+
+.frame-5,
+.frame-5 * {
+  box-sizing: border-box;
+}
+.frame-5 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+.frame-7 {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 414px;
+  position: relative;
+}
+.frame-12 {
+  flex-shrink: 0;
+  width: 391px;
+  height: 172px;
+  position: relative;
+}
+.vector {
+  width: 146px;
+  height: 125px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.heading {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  position: absolute;
+  left: 21px;
+  top: 55px;
+  width: 370px;
+  -webkit-text-stroke: 1px #000000;
+}
+.heading2 {
+  color: #000000;
+  text-align: center;
+  font-family: "JotiOne-Regular", sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  -webkit-text-stroke: 1px #000000;
+}
+.subheading{
+  display: flex;
+  flex-direction: column;
+  gap: 53px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 180px;
+  position: relative;
+}
+.sub-heading {
+  text-align: center;
+  font-family: "-", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  width: 291px;
+  height: 71px;
+}
+.sub-heading-span {
+  color: #000000;
+  font-family: "InstrumentSans-Medium", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.sub-heading-span2 {
+  color: #8958f7;
+  font-family: "InstrumentSans-BoldItalic", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+}
+.sub-heading-span3 {
+  color: #000000;
+  font-family: "InstrumentSans-Medium", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.sub-heading-span4 {
+  color: #8958f7;
+  font-family: "InstrumentSans-BoldItalic", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+}
+.sub-heading-span5 {
+  color: #000000;
+  font-family: "InstrumentSans-Medium", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.sub-heading-span6 {
+  color: #8958f7;
+  font-family: "InstrumentSans-BoldItalic", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+}
+.sub-heading-span7 {
+  color: #000000;
+  font-family: "InstrumentSans-Medium", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.sub-heading-span8 {
+  color: #8958f7;
+  font-family: "InstrumentSans-BoldItalic", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+}
+.sub-heading-span9 {
+  color: #000000;
+  font-family: "InstrumentSans-Medium", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.frame-6 {
+  background: #000000;
+  border-radius: 11px;
+  padding: 10px 22px 10px 22px;
+  display: flex;
+  flex-direction: row;
+  gap: 23px;
+  align-items: flex-end;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 120px;
+  height: 38px;
+  position: relative;
+}
+.home-button-page {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Alexandria-Regular", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 120px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+.cards,
+.cards * {
+  box-sizing: border-box;
+}
+.cards {
+  padding: 0px 26px 0px 26px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  height: 219px;
+  position: relative;
+}
+.card1 {
+  flex-shrink: 0;
+  width: 269px;
+  height: 165px;
+  position: relative;
+}
+.card-1 {
+  background: #fec973;
+  width: 248.68px;
+  height: 109.53px;
+  position: absolute;
+  left: 9.55px;
+  top: 34px;
+  transform-origin: 0 0;
+  transform: rotate(5deg) scale(1, 1);
+}
+.pen-3 {
+  height: auto;
+  position: absolute;
+  left: 112.92px;
+  top: 0px;
+  overflow: visible;
+}
+.card-1-text {
+  color: #000000;
+  text-align: left;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: absolute;
+  left: 32.92px;
+  top: 50px;
+  width: 215.13px;
+  height: 79.37px;
+  transform-origin: 0 0;
+  transform: rotate(5deg) scale(1, 1);
+}
+.card2 {
+  flex-shrink: 0;
+  width: 240.55px;
+  height: 146.1px;
+  position: relative;
+}
+.card-2 {
+  background: #00d4ff;
+  width: 237px;
+  height: 106px;
+  position: absolute;
+  left: 0px;
+  top: 40.17px;
+  transform-origin: 0 0;
+  transform: rotate(-2deg) scale(1, 1);
+}
+.clip-path-group {
+  height: auto;
+  position: absolute;
+  left: 89.78px;
+  top: 0px;
+  overflow: visible;
+}
+.card-2-text {
+  color: #100f0f;
+  text-align: left;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: absolute;
+  left: 26.13px;
+  top: 58.8px;
+  width: 206px;
+  transform-origin: 0 0;
+  transform: rotate(-1deg) scale(1, 1);
+}
+.card3 {
+  flex-shrink: 0;
+  width: 270px;
+  height: 185px;
+  position: relative;
+}
+.card-3 {
+  background: #e4ef8f;
+  width: 248.68px;
+  height: 109.53px;
+  position: absolute;
+  left: 5.73px;
+  top: 41px;
+  transform-origin: 0 0;
+  transform: rotate(3deg) scale(1, 1);
+}
+.lock-your-password-icon-svg-co {
+  width: 54px;
+  height: 44px;
+  position: absolute;
+  left: 94px;
+  top: 0px;
+  overflow: visible;
+}
+.save-and-manage-your-notes-with-ease-create-an-account-to-securely-store-organize-and-access-your-notes-anytime-anywhere {
+  color: #000000;
+  text-align: left;
+  font-family: "IrishGrover-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: absolute;
+  left: 16.78px;
+  top: 43px;
+  width: 234.42px;
+  height: 129.51px;
+  transform-origin: 0 0;
+  transform: rotate(3deg) scale(1, 1);
+}

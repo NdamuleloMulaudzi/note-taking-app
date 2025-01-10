@@ -4,12 +4,18 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { authGuard } from './auth.guard';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 export const routes: Routes = [
+
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full',
+  },
+  {
+    path:'home',
+    component:HomePageComponent
   },
   {
     path: 'auth',
@@ -28,7 +34,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: MainLayoutComponent,
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
   {
     path: '**', // Wildcard route

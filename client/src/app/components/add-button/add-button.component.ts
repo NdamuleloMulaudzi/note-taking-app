@@ -30,6 +30,7 @@ export class AddButtonComponent {
       })
       .subscribe({
         next: () => {
+          console.log(this.userServices.getUser().user.id);
           //this notifies that a new note was added and tells NoteCardComponent it needs to call the fetchNote function
           this.noteEventService.notifyNoteUpdated();
         },

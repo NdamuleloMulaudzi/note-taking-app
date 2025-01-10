@@ -39,6 +39,7 @@ export class NoteCardComponent implements OnInit {
       next: (response) => {
         this.notes = response;
         console.log(this.notes);
+        console.log(this.userService.getUser().user.id);
       },
       error: (err) => {
         console.error('Error fetching notes: ', err);
