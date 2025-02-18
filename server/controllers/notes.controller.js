@@ -15,6 +15,7 @@ const createNote = async (req, res) => {
   } catch (error) {
     console.error("Error creating a note:", error);
     res.status(500).send("Error createing a note");
+    res.status
   }
 };
 
