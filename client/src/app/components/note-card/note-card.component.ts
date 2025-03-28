@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
 import { CommonModule, NgFor,  } from '@angular/common';
 import { UserService } from '../../services/user.service';
-import { ButtonModule } from 'primeng/button';
+
 import { NoteEventService } from '../../services/note-event.service';
 
 @Component({
