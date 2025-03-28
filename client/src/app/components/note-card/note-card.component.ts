@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
 import { CommonModule, NgFor,  } from '@angular/common';
 import { UserService } from '../../services/user.service';
-
+import { ButtonModule } from 'primeng/button';
 import { NoteEventService } from '../../services/note-event.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { NoteEventService } from '../../services/note-event.service';
   imports: [NgFor, CommonModule],
   templateUrl: './note-card.component.html',
   styleUrl: './note-card.component.css',
+  
 })
 export class NoteCardComponent implements OnInit {
   constructor(
@@ -18,6 +19,9 @@ export class NoteCardComponent implements OnInit {
     private userService: UserService,
     private noteEventService: NoteEventService
   ) {}
+
+  isConfirmDeleteVisible:boolean= false
+  selectedNoteId:number = 0 
 
   //store notes from a user
   notes: any[] = [];
@@ -67,22 +71,30 @@ export class NoteCardComponent implements OnInit {
       .subscribe((res) => console.log('Note updated:', res));
   }
 
+  removeNote(noteId: number) {
+    this.notesService.deleteNote(noteId).subscribe({
+      next: (res) => {
+        console.log('Note deleted:', res);
+
+        // Notify  the deletation of a note and tells NoteCardComponent it needs to call the fetchNote function
+        this.noteEventService.notifyNoteUpdated();
+        this.isConfirmDeleteVisible = false
+      },
+      error: (err) => {
+        console.error('Error deleting a note: ', err);
+      },
+    });
+  }
+
   // Toggle the editable state for note description
   toggleEdit(note: any) {
     note.isEditable = !note.isEditable;
   }
 
-  //decrease the opacity of the card when dragged && transfer the noteId to the delete-button delete
-  onDragStart(event: DragEvent, note: any): void {
-    const target = event.currentTarget as HTMLElement;
-    target.classList.add('dragging');
-    if (event.dataTransfer) {
-      event.dataTransfer.setData('text/plain', note.note_id);
-    }
-  }
+  openModal(noteId:number){
+    this.isConfirmDeleteVisible = true;
+    this.selectedNoteId = noteId
 
-  onDragEnd(event: DragEvent): void {
-    const target = event.currentTarget as HTMLElement;
-    target.classList.remove('dragging');
   }
+  
 }
