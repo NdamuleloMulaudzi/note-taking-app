@@ -15,6 +15,7 @@
   background: #D9D9D9;
   height: 100vh;
   width: 100vw;
+  margin-top: 80px;
  
 }
 
@@ -23,11 +24,20 @@ span{
 }
 
 .home-paragraph{
-  
+  z-index: 99;
+}
+
+.home-heading{
+  z-index: 1;
+}
+
+.get-started{
+  margin-top: 80px;
 }
 
 .get-started-btn{
   width: 200px;
+  text-transform: uppercase;
 }
 .cards{
   display: flex;
@@ -66,6 +76,11 @@ span{
   gap: 3px;
 }
 
-img{
-  width: 50px;
+
+.vector{
+  position: absolute;
+  top: 0px;
+  left: 60px;
+  z-index: 0;
+
 }
