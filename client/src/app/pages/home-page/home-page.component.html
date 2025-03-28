@@ -1,78 +1,45 @@
 <div class="landing h-100">
   <div class="landing-header"><app-header /></div>
-  <main class="landing-main">
-    <div class="frame-5">
-      <div class="frame-7">
-        <div class="frame-12">
-          <img class="vector" src="Vector.svg" />
-          <div class="heading">
-            Capture, organize, and access your ideas anywhere
-          </div>
-        </div>
-        <div class="heading2">Your ultimate note-taking companion!</div>
+  <main class="landing-main mt-5">
+    <section>
+      <img src="Vector.png" alt="" class="position-absolute ">
+      <div class="home-heading d-flex flex-column align-items-center">
+        <h1 class="fw-bold text-center">Capture, organize, and access your ideas anywhere<br/>your ultimate note-taking companion!</h1>
+      
       </div>
-      <div class="subheading">
-        <div class="sub-heading">
-          <span>
-            <span class="sub-heading-span">Stay on top of your</span>
-            <span class="sub-heading-span2">thoughts</span>
-            <span class="sub-heading-span3">and</span>
-            <span class="sub-heading-span4">ideas</span>
-            <span class="sub-heading-span5">
-              with ease! Our note-taking app lets you
-            </span>
-            <span class="sub-heading-span6">capture</span>
-            <span class="sub-heading-span7">,</span>
-            <span class="sub-heading-span8">organize</span>
-            <span class="sub-heading-span9">
-              , and access your notes anytime, anywhere, so you can focus on what
-              truly matters
-            </span>
-          </span>
-        </div>
-        <div class="frame-6">
-          <div class="home-button-page" routerLink="/register">GET STARTED</div>
-        </div>
+      <div class="home-paragraph d-flex flex-column justify-content-center align-items-center">
+        <p class="fw-bold fs-5 text-center">Stay on top of your <span>thoughts</span> and <span>ideas</span> 
+          with ease! Our note-taking app lets you <span>capture</span>, <span>organize</span>, and access <br/>your notes anytime, anywhere, so you can focus on what truly matters
+        </p>
+
       </div>
-    </div>
-    <div class="cards">
-      <div class="card1">
-        <div class="card-1"></div>
-        <img class="pen-3" src="pen3.svg" />
-        <div class="card-1-text">
-          Capture Your Ideas Instantly!
-          <br />
-          Never lose a brilliant thought—save notes effortlessly on the go.
-        </div>
+    </section>
+    <section class="get-started">
+      <div class="d-flex justify-content-center">
+        <button class="get-started-btn text-white bg-black p-3 rounded-4 fw-light w-[100px]">Get Stated</button>
       </div>
-      <div class="card2">
-        <div class="card-2"></div>
-        <img class="clip-path-group" src="folder.svg" />
-        <div class="card-2-text">
-          Organize Your Way!
-          <br />
-          Streamline your ideas with folders, tags, and smart categorization.
+
+      <div class="cards">
+        
+       <div class="outer card1">
+        <img src="pen3.svg" alt="">
+        <div class="card">
+          <p>Capture Your Ideas Instantly! Never lose a brilliant thought—save notes effortlessly on the go.</p>
         </div>
-      </div>
-      <div class="card3">
-        <div class="card-3"></div>
-        <img
-          class="lock"
-          src="lock.svg"
-        />
-        <div
-          class="save-and-manage-your-notes-with-ease-create-an-account-to-securely-store-organize-and-access-your-notes-anytime-anywhere"
-        >
-          Save and Manage Your Notes with Ease!
-          <br />
-          Create an account to securely store, organize, and access your notes
-          anytime, anywhere.
+       </div>
+       <div class="outer card2">
+        <img src="folder.svg" alt="">
+        <div class="card">
+          <p>Organize Your Way! Streamline your ideas with folders, tags, and smart categorization.</p>
         </div>
+       </div>
+       <div class="outer card3">
+        <img src="lock.svg" alt="">
+        <div class="card">
+          <p>Save and Manage Your Notes with Ease! Create an account to securely store, organize, and access your notes anytime, anywhere.</p>
+        </div>
+       </div>
       </div>
-    </div>
-    
-    
-    
-    
+    </section>
   </main>
 </div>
