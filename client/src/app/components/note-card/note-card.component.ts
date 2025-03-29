@@ -76,7 +76,6 @@ export class NoteCardComponent implements OnInit {
       next: (res) => {
         console.log('Note deleted:', res);
 
-        // Notify  the deletation of a note and tells NoteCardComponent it needs to call the fetchNote function
         this.noteEventService.notifyNoteUpdated();
         this.isConfirmDeleteVisible = false
       },

@@ -40,7 +40,7 @@ export class LoginPageComponent {
         this.router.navigate(['/dashboard']);
       },
       error: (err) => {
-        console.error('Error logging in: ', err);
+        throw('Error logging in: ');
       },
     });
   }

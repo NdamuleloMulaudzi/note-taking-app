@@ -12,13 +12,13 @@ export class UserService {
 
   getUserId() {
     const token =localStorage.getItem('token')
-    if (token) { // Check if the token is not null
+    if (token) {
       const decodeToken:any = jwtDecode(token);
   
       return decodeToken.id
      
   } else {
-      console.error('Token not found in localStorage');
+      throw('Token not found in localStorage');
   }
   }
 
