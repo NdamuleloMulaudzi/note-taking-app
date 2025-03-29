@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserInterface } from '../interfaces/user.interface';
+import {jwtDecode} from 'jwt-decode'
 
 @Injectable({
   providedIn: 'root',
@@ -7,17 +8,21 @@ import { UserInterface } from '../interfaces/user.interface';
 export class UserService {
   constructor() {}
 
-  setUser(data: any): void {
-    const user = Array.isArray(data) ? data[0] : data;
-    localStorage.setItem('user-data', JSON.stringify(user));
-  }
+ 
 
-  getUser() {
-    const userData = localStorage.getItem('user-data');
-    return userData ? JSON.parse(userData) : null;
+  getUserId() {
+    const token =localStorage.getItem('token')
+    if (token) { // Check if the token is not null
+      const decodeToken:any = jwtDecode(token);
+  
+      return decodeToken.id
+     
+  } else {
+      console.error('Token not found in localStorage');
+  }
   }
 
   removeUser() {
-    localStorage.removeItem('user-data');
+    localStorage.removeItem('token');
   }
 }

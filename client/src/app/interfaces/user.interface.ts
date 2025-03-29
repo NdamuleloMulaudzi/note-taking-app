@@ -1,6 +1,7 @@
 export interface LoginInterface {
   email: string| null |undefined;
   password: string |null|undefined;
+  
 }
 
 export interface registerInterface extends LoginInterface {
@@ -14,4 +15,10 @@ export interface UserInterface {
   last_name: string;
   email: string;
   password: string;
+}
+
+export interface DecodedToken {
+  user_id: number;
+  iat: number;
+  exp: number;
 }

@@ -3,6 +3,7 @@ import { NotesService } from '../../services/notes.service';
 import { UserService } from '../../services/user.service';
 import { NoteEventService } from '../../services/note-event.service';
 
+
 @Component({
   selector: 'app-add-button',
   standalone: true,
@@ -24,13 +25,13 @@ export class AddButtonComponent {
   createNote(color: string) {
     this.notesService
       .createNote({
-        userId: this.userServices.getUser().user.id,
+        userId: this.userServices.getUserId(),
         noteDescription: this.noteDescription,
         color: color,
       })
       .subscribe({
         next: () => {
-          console.log(this.userServices.getUser().user.id);
+          console.log(this.userServices.getUserId());
           //this notifies that a new note was added and tells NoteCardComponent it needs to call the fetchNote function
           this.noteEventService.notifyNoteUpdated();
         },

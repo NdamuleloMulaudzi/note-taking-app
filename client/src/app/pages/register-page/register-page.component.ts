@@ -42,9 +42,9 @@ export class RegisterPageComponent {
       .subscribe({
         next: () =>
           this.authService.login({ email, password }).subscribe({
-            next: (respons) => {
-              this.userService.setUser(respons);
-              this.router.navigate(['/dashboard']);
+            next: (response:any) => {
+              localStorage.setItem('token', response.token);
+          this.router.navigate(['/dashboard']);;
             },
             error: (err) => console.error('Error logging in: ', err),
           }),

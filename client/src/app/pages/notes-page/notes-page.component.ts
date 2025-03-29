@@ -8,31 +8,32 @@ import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-notes-page',
   standalone: true,
-  imports: [NoteCardComponent, NgFor],
+  imports: [NoteCardComponent,],
   templateUrl: './notes-page.component.html',
   styleUrl: './notes-page.component.css',
 })
-export class NotesPageComponent {
+export class NotesPageComponent implements OnInit {
   notes: any[] = [];
   constructor(private notesService: NotesService, private userService:UserService, private noteEventService:NoteEventService) {}
   ngOnInit(): void {
-    this.userService.getUser()
-    this.fetchNotes();
+   
+    // this.fetchNotes();
   
+
     // Refresh notes when a note is added or deleted
     this.noteEventService.noteUpdated.subscribe(() => {
-      this.fetchNotes();
+      // this.fetchNotes();
     });
   }
   
 
   //fetch notes of a user
   fetchNotes() {
-    this.notesService.fetchNotes(this.userService.getUser().user.id).subscribe({
+    this.notesService.fetchNotes(this.userService.getUserId()).subscribe({
       next: (response) => {
         this.notes = response;
         console.log(this.notes);
-        console.log(this.userService.getUser().user.id);
+        console.log(this.userService.getUserId().user.id);
       },
       error: (err) => {
         console.error('Error fetching notes: ', err);

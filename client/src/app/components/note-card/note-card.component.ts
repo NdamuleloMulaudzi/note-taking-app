@@ -27,7 +27,7 @@ export class NoteCardComponent implements OnInit {
   notes: any[] = [];
 
   ngOnInit(): void {
-    this.userService.getUser()
+    this.userService.getUserId()
     this.fetchNotes();
   
     // Refresh notes when a note is added or deleted
@@ -39,11 +39,11 @@ export class NoteCardComponent implements OnInit {
 
   //fetch notes of a user
   fetchNotes() {
-    this.notesService.fetchNotes(this.userService.getUser().user.id).subscribe({
+    this.notesService.fetchNotes(this.userService.getUserId()).subscribe({
       next: (response) => {
         this.notes = response;
         console.log(this.notes);
-        console.log(this.userService.getUser().user.id);
+        console.log(this.userService.getUserId());
       },
       error: (err) => {
         console.error('Error fetching notes: ', err);

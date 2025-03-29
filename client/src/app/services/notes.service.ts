@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { fetchNoteInterface, InsertNoteInterface, UpdateNoteInterface } from '../interfaces/note.interface';
 import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,8 @@ import { environment } from '../../environments/environment';
 export class NotesService {
 
   SERVER = `${environment.SERVER}/notes`;
+
+  
 
   constructor(private http: HttpClient) {}
   createNote(noteData:InsertNoteInterface):Observable<InsertNoteInterface>{
