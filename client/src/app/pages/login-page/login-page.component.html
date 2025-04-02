@@ -1,0 +1,49 @@
+<div class="login">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="d-flex flex-column justify-content-center h-50"
+  >
+    <div>
+      <p class="text-center">
+        Don't have an account? <a routerLink="/auth/register">Register</a>
+      </p>
+    </div>
+    <div>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        aria-describedby="emailHelp"
+        [placeholder]="
+          loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+            ? 'Please enter a valid email.'
+            : 'Email'
+        "
+      />
+    </div>
+
+    <div>
+      <input
+        type="password"
+        class="form-control"
+        formControlName="password"
+        [placeholder]="
+          loginForm.get('password')?.invalid &&
+          loginForm.get('password')?.touched
+            ? 'Password must be at least 6 characters long.'
+            : 'Password'
+        "
+      />
+    </div>
+    <div>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        Sign up
+      </button>
+    </div>
+  </form>
+</div>

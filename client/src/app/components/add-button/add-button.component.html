@@ -1,0 +1,49 @@
+<div class="add-note d-flex flex-column align-content-center px-5 py-3  gap-2">
+  <div class="add-btn">
+    <svg
+      class="bg-black rotate-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      width="75"
+      height="75"
+      fill="currentColor"
+      class="bi bi-plus-circle-fill"
+      viewBox="0 0 16 16"
+      role="button"
+      data-bs-toggle=""
+      data-bs-target="#noteColorOptions"
+      aria-expanded="false"
+      aria-controls=""
+    >
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"
+      />
+    </svg>
+  </div>
+  <div class="note-color px-2" id="noteColorOptions">
+    <div
+      class="note-btn bg-peach mt-3"
+      role="button"
+      (click)="createNote('#FEC973')"
+    ></div>
+    <div
+      class="note-btn bg-orange mt-3"
+      role="button"
+      (click)="createNote('#FF9B72')"
+    ></div>
+    <div
+      class="note-btn bg-lavender mt-3"
+      role="button"
+      (click)="createNote('#B493FE')"
+    ></div>
+    <div
+      class="note-btn bg-blue mt-3"
+      role="button"
+      (click)="createNote('#00D4FF')"
+    ></div>
+    <div
+      class="note-btn bg-green mt-3"
+      role="button"
+      (click)="createNote('#E4EF8F')"
+    ></div>
+  </div>
+</div>

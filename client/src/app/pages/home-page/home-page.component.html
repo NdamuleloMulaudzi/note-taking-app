@@ -1,0 +1,38 @@
+<div class="landing">
+  <div class="landing-header">
+      <app-header></app-header>
+  </div>
+  <main class="landing-main position-relative">
+      <section>
+       
+          <div class="vector">
+            <img class="vector-img" src="Vector.svg" alt="" width="300px" height="250px">
+          </div>
+          <div class="home-heading text-center fs-4">
+              <h1>Capture, organize, and access your ideas anywhere<br>Your ultimate note-taking companion!</h1>
+          </div>
+          <div class="home-paragraph text-center fs-5">
+              <p>Stay on top of your <span>thoughts</span> and <span>ideas</span> with ease! Our note-taking app lets you <span>capture</span>, <span>organize</span>, and access your<br/> notes anytime, anywhere, so you can focus on what truly matters.</p>
+          </div>
+      </section>
+      <section class="get-started">
+          <div class="get-started d-flex justify-content-center" (click)="onSubmit()">
+            <button class="get-started-btn bg-black text-white rounded-2">Get Started</button>
+          </div>
+          <div class="cards">
+              <div class="outer card1">
+                  <img src="pen3.svg" alt="Pen Icon">
+                  <div class="card">Capture Your Ideas Instantly! Never lose a brilliant thought—save notes effortlessly on the go.</div>
+              </div>
+              <div class="outer card2">
+                  <img src="folder.svg" alt="Folder Icon">
+                  <div class="card">Organize Your Way! Streamline your ideas with folders, tags, and smart categorization.</div>
+              </div>
+              <div class="outer card3">
+                  <img src="lock.svg" alt="Lock Icon">
+                  <div class="card">Save and Manage Your Notes with Ease! Create an account to securely store, organize, and access your notes anytime, anywhere.</div>
+              </div>
+          </div>
+      </section>
+  </main>
+</div>

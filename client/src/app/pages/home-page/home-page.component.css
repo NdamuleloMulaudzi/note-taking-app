@@ -1,0 +1,111 @@
+@font-face {
+  font-family: irish;
+  src: url(../../../../public//fonts/Irish_Grover/IrishGrover-Regular.ttf);
+}
+
+
+.landing{
+  background: #D9D9D9;
+  max-height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.landing-main{
+  background: #D9D9D9;
+  height: 100vh;
+  width: 100vw;
+  margin-top: 80px;
+
+ 
+}
+
+span{
+  color: #6328E7;
+}
+
+.home-paragraph{
+  position: relative;
+  z-index: 999;
+}
+
+.home-heading{
+  position: relative;
+  z-index: 1;
+}
+
+.get-started{
+  margin-top: 80px;
+}
+
+.get-started-btn{
+  width: 200px;
+  padding: 15px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.cards{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap:25px
+}
+
+.card{
+  width: 352px;
+  height: 167px;
+  border: 1px black solid;
+  padding: 20px;
+  font-family: irish;
+  font-size: 22px;
+}
+
+.card1>.card{
+  background: #FEC973;
+  transform: rotate(5deg);
+}
+
+.card2>.card{
+  background: #00D4FF;
+}
+
+.card3>.card{
+  background: #E4EF8F;
+  transform: rotate(5deg);
+  height: 190px;
+
+}
+
+.outer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+
+.vector{
+  position: absolute;
+  top: -10px;
+  left: 15%;
+ 
+
+}
+
+
+@media screen and  (max-width: 768px) {
+  .vector{
+    position: absolute;
+    top: -13%;
+    left: 2%;
+   
+  
+  }
+
+  .vector>img{
+    width: 100px;
+
+  }
+}
+

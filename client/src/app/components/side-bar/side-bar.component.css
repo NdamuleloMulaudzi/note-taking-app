@@ -1,0 +1,15 @@
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h3{
+  z-index:99;
+}
+
+@media screen  and (max-width:500px) {
+  .side-bar{
+    display: none;
+  }
+}
