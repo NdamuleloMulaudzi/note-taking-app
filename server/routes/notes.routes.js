@@ -6,6 +6,6 @@ const route = Router()
 route.post("/addnote", createNote)
 route.put("/modifynote/:noteId", updateNote)
 route.get("/fetchnote/:userId",getNotes)
-route.delete("/deletenote",deleteNote)
+route.delete("/deletenote/:noteId",deleteNote)
 
 export default route

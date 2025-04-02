@@ -6,22 +6,20 @@ import { fetchUserByEmail } from "../models/user.model.js";
 
 const registerUser = async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
-  const hashedPassword = await bycript.hash(password, 10);
+  if (!firstName || !lastName || !email || !password) {
+    return res.status(400).json({ message: "All fields are required" });
+  }
 
   try {
-
     //register user to databse
+    const hashedPassword = await bycript.hash(password, 10);
+
     const results = await insertUser(
       firstName,
       lastName,
       email,
       hashedPassword
     );
-
-    //error handling
-    if (!firstName || !lastName || !email || !password) {
-      return;
-    }
 
     res.json(results);
   } catch (error) {
@@ -37,7 +35,6 @@ const login = async (req, res) => {
     const results = await fetchUserByEmail(email);
     const user = results.rows[0];
 
-
     //verify password
     const comparePassword = await bycript.compare(password, user.password);
     if (!user || !comparePassword) {
@@ -49,28 +46,15 @@ const login = async (req, res) => {
       res.status(401).json({ message: "Invalid email" });
     }
 
-
     //generate token
-    const token = jwt.sign({ user_id: user.user_id }, "mycats", {
+    const token = jwt.sign({ id: user.id }, "mycats", {
       expiresIn: "1hr",
     });
-    res.json(token);
+    res.json({token});
   } catch (error) {
     console.error("Error during login:", error);
     res.status(500).json({ message: "An error occurred during login" });
   }
-};
-
-const authenticateToken = (req, res, next) => {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-
-  if (!token) return res.status(401).json({ message: "Access denied" });
-
-  jwt.verify(token, "mycats", (err) => {
-    if (err) return res.status(403).json({ message: "Invalid token" });
-    next();
-  });
 };
 
 export { registerUser, login };

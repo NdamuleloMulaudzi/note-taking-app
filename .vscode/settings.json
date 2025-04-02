@@ -8,6 +8,16 @@
       "name": "aizen",
       "database": "aizen",
       "username": "postgres"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "docket",
+      "database": "docket",
+      "username": "postgres",
+      "password": ""
     }
   ]
 }

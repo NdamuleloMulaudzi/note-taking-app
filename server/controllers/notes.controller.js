@@ -7,14 +7,15 @@ import {
 
 //create a note
 const createNote = async (req, res) => {
-  const { userId, noteDescription } = req.body;
+  const { userId, noteDescription, color } = req.body;
 
   try {
-    const newNote = await insertNote(userId, noteDescription);
+    const newNote = await insertNote(userId, noteDescription, color);
     res.json(newNote);
   } catch (error) {
     console.error("Error creating a note:", error);
     res.status(500).send("Error createing a note");
+    res.status
   }
 };
 
@@ -52,17 +53,20 @@ const getNotes = async (req, res) => {
 
 //delete note
 const deleteNote = async (req, res) => {
-  const { noteId } = req.body;
+  const { noteId } = req.params;
 
   try {
     const results = await removeNote(noteId);
-    if(results.rowCount===0){
-     return res.status(400).send("note not found or you do not have permission to delete it")
+    if (results.rowCount === 0) {
+      return res
+        .status(404)
+        .json({ error: "Note not found or you do not have permission to delete it" });
     }
-    res.status(200).send("note deleted successfully")
+    res.status(200).json({ message: "Note deleted successfully" });
   } catch (error) {
     console.error("Error deleting a note", error);
-    res.status(500).send("Error deleting a note");
+    res.status(500).json({ error: "Internal server error" });
   }
 };
+
 export { createNote, updateNote, getNotes, deleteNote };

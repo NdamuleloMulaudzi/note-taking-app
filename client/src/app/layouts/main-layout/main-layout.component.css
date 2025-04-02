@@ -1,0 +1,10 @@
+.divider {
+    width: 4px; 
+    background: linear-gradient(180deg, #fec973,#ff9b72,#b493fe,#00d4ff,#e4ef8f); 
+    height: 100vh; 
+  }
+
+  #main{
+    overflow-y: hidden;
+  }
+  
